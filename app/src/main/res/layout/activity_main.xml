@@ -21,14 +21,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="right" >
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="表达式" />
+            android:text="表 达 式" />
 
         <EditText
             android:id="@+id/edit2"
@@ -42,6 +42,10 @@
 
     </LinearLayout>
 
+    <requestFocus />
+
+    <!-- android:line = "1":设置显示行数 -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -50,7 +54,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="结果=" />
+            android:text="结 果 = " />
 
         <EditText
             android:id="@+id/edit1"
@@ -68,13 +72,16 @@
         android:layout_height="fill_parent"
         android:stretchColumns="0,1,2,3">
 
+        <!-- android:stretchColumns = "0, 1, 2, 3":设置自动拉伸某些列 -->
+
         <TableRow>
 
             <Button
                 android:id="@+id/buttonC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="归零" />
+                android:text="归零"
+                android:textColor="#ff0000" />
 
             <Button
                 android:id="@+id/buttonDel"
@@ -88,6 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_span="2"
                 android:text=" = "/>
+
+            <!-- android:layout_span="2":设置控件占两格 -->
 
         </TableRow>
 
@@ -181,7 +190,8 @@
                 android:id="@+id/buttonMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="±" />
+                android:text="±"
+                android:textColor="#ff0000" />
 
             <Button
                 android:id="@+id/button0"
@@ -193,13 +203,15 @@
                 android:id="@+id/buttonPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="." />
+                android:text="."
+                android:textColor="#ff0000" />
 
             <Button
                 android:id="@+id/buttonDiv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="÷" />
+                android:text="÷"
+                android:textColor="#ff0000" />
 
         </TableRow>
 
