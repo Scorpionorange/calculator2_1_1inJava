@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt0 = null, bt1 = null, bt2 = null,bt3 = null,
                    bt4 = null, bt5 = null, bt6 = null,
                    bt7 = null, bt8 = null, bt9 = null,
-                   btC = null, btEqual = null, btPlus = null;
+                   btC = null, btEqual = null, btPlus = null, btDec = null;
     private int x = 0, y = 0, result = 0;
     private int sign = 0;
     private String operator = "";
@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         bt7 = (Button) findViewById(R.id.button7);
         bt8 = (Button) findViewById(R.id.button8);
         bt9 = (Button) findViewById(R.id.button9);
+        bt0 = (Button) findViewById(R.id.button0);
         btPlus = (Button) findViewById(R.id.buttonPlus);
+        btDec = (Button) findViewById(R.id.buttonDec);
         btEqual = (Button) findViewById(R.id.buttonEqual);
         btC = (Button) findViewById(R.id.buttonC);
 
