@@ -130,6 +130,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btDec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setoperator("-");
+            }
+        });
+
         btEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void equal(){
-        if(operator.equals("+") && sign == 2){
-            result = x + y;
+        if(operator.equals("-") && sign == 2){
+            result = x - y;
             etShowInfo.setText(x + operator + y);
             etInOut.setText("" + result);
             sign = 0;
