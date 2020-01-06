@@ -16,7 +16,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2.1.1 界面布局及控件介绍"
+        android:text="2.1.2 一位整型加法"
         android:textSize="18dp" />
 
     <LinearLayout
@@ -87,14 +87,16 @@
                 android:id="@+id/buttonDel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="退位" />
+                android:text="退位"
+                android:textColor="#ff0000" />
 
             <Button
                 android:id="@+id/buttonEqual"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
-                android:text=" = "/>
+                android:text=" = "
+                android:textColor="#ff0000" />
 
             <!-- android:layout_span="2":设置控件占两格 -->
 
@@ -124,7 +126,8 @@
                 android:id="@+id/buttonPlus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+" />
+                android:text="+"
+                android:textColor="#ff0000" />
 
         </TableRow>
 
@@ -152,7 +155,8 @@
                 android:id="@+id/buttonDec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:text="-"
+                android:textColor="#ff0000" />
 
         </TableRow>
 
@@ -180,7 +184,8 @@
                 android:id="@+id/buttonMultiple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="×" />
+                android:text="×"
+                android:textColor="#ff0000" />
 
         </TableRow>
 
