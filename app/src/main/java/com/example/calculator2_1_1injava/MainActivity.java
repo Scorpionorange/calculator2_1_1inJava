@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
                    btC = null, btEqual = null, btDel = null,
                    btPlus = null, btMinus = null, btMultiple = null, btDiv = null,
                    btPlusOrMinus = null, btPoint = null;
-    private int x = 0, y = 0, result = 0;
+    private double x = 0.0, y = 0.0, result = 0.0;
+    private String op1 = "", op2 = "";
     private int sign = 0;
+    private int pointsign = 0;
     private String operator = "";
 
     @Override
@@ -51,76 +54,76 @@ public class MainActivity extends AppCompatActivity {
         btPlusOrMinus = (Button) findViewById(R.id.buttonPlusOrMinus);
         btPoint = (Button) findViewById(R.id.buttonPoint);
 
-        String i = Integer.toString(x);
+        String i = Double.toString(x);
         etInOut.setText(i);
 
         bt1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(1);
+                settext("1");
             }
         });
 
         bt2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(2);
+                settext("2");
             }
         });
 
         bt3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(3);
+                settext("3");
             }
         });
 
         bt4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(4);
+                settext("4");
             }
         });
 
         bt5.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(5);
+                settext("5");
             }
         });
 
         bt6.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(6);
+                settext("6");
             }
         });
 
         bt7.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(7);
+                settext("7");
             }
         });
 
         bt8.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(8);
+                settext("8");
             }
         });
 
         bt9.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(9);
+                settext("9");
             }
         });
 
         bt0.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                settext(0);
+                settext("0");
             }
         });
 
@@ -186,16 +189,64 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void settext(int input){
-        String i = Integer.toString(input);
-        if(sign == 0){
-            etInOut.setText(i);
-            x = input;
-            sign = 1;
-        } else if (sign == 2){
-            etInOut.setText(i);
-            y = input;
+    private void settext(String input){
+        double i;
+        if(input.equals("-1")){
+
+            if (sign == 0 || sign == 1){
+                if(op1.equals(""))return;
+                i = Double.parseDouble(op1);
+                if (op1.startsWith("-"))
+                    op1=op1.substring(1);
+                else
+                    op1="-" + op1;
+                etInOut.setText(op1);
+                x = -(double)i;
+            }else if (sign == 2){
+                if(op2.equals(""))return;
+                i = Double.parseDouble(op2);
+                if (op2.startsWith("-"))
+                    op2=op2.substring(1);
+                else
+                    op2="-" + op2;
+                etInOut.setText(op2);
+                y = -(double)i;
+            }
         }
+        else if (sign == 0 || sign == 1) {
+            op1 = op1 + input;
+            i = Double.parseDouble(op1);
+            if (i <= 3.4028235E38) {
+                etInOut.setText(op1);
+                x = (double) i;
+                sign = 1;
+                if (input.equals("."))
+                    pointsign = 1;
+            } else {
+                Toast.makeText(MainActivity.this, "输入数据超出最大可计算值，请重新输入！",
+                        Toast.LENGTH_LONG).show();
+                op1 = "";
+                etInOut.setText("0.0");
+                x = 0.0;
+            }
+        } else if (sign == 2) {
+            op2 = op2 + input;
+            i = Double.parseDouble(op2);
+            if (i <= 3.4028235E38) {
+                etInOut.setText(op2);
+                y = (double) i;
+                if (input.equals("."))
+                    pointsign = 1;
+            } else {
+                Toast.makeText(MainActivity.this, "输入数据超出最大可计算值，请重新输入！",
+                        Toast.LENGTH_LONG).show();
+                op2 = "";
+                etInOut.setText("0.0");
+                y = 0.0;
+            }
+
+        }
+
     }
 
     private void clean(){
