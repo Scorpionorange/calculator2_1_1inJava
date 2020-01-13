@@ -32,27 +32,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void click(){
-        etShowInfo = (EditText) findViewById(R.id.edit2);
-        etInOut = (EditText) findViewById(R.id.edit1);
-        bt1 = (Button) findViewById(R.id.button1);
-        bt2 = (Button) findViewById(R.id.button2);
-        bt3 = (Button) findViewById(R.id.button3);
-        bt4 = (Button) findViewById(R.id.button4);
-        bt5 = (Button) findViewById(R.id.button5);
-        bt6 = (Button) findViewById(R.id.button6);
-        bt7 = (Button) findViewById(R.id.button7);
-        bt8 = (Button) findViewById(R.id.button8);
-        bt9 = (Button) findViewById(R.id.button9);
-        bt0 = (Button) findViewById(R.id.button0);
-        btC = (Button) findViewById(R.id.buttonC);
-        btEqual = (Button) findViewById(R.id.buttonEqual);
-        btDel = (Button) findViewById(R.id.buttonDel);
-        btPlus = (Button) findViewById(R.id.buttonPlus);
-        btMinus = (Button) findViewById(R.id.buttonMinus);
-        btMultiple = (Button) findViewById(R.id.buttonMultiple);
-        btDiv = (Button) findViewById(R.id.buttonDiv);
-        btPlusOrMinus = (Button) findViewById(R.id.buttonPlusOrMinus);
-        btPoint = (Button) findViewById(R.id.buttonPoint);
+        etShowInfo = findViewById(R.id.edit2);
+        etInOut = findViewById(R.id.edit1);
+        bt1 = findViewById(R.id.button1);
+        bt2 = findViewById(R.id.button2);
+        bt3 = findViewById(R.id.button3);
+        bt4 = findViewById(R.id.button4);
+        bt5 = findViewById(R.id.button5);
+        bt6 = findViewById(R.id.button6);
+        bt7 = findViewById(R.id.button7);
+        bt8 = findViewById(R.id.button8);
+        bt9 = findViewById(R.id.button9);
+        bt0 = findViewById(R.id.button0);
+        btC = findViewById(R.id.buttonC);
+        btEqual = findViewById(R.id.buttonEqual);
+        btDel = findViewById(R.id.buttonDel);
+        btPlus = findViewById(R.id.buttonPlus);
+        btMinus = findViewById(R.id.buttonMinus);
+        btMultiple = findViewById(R.id.buttonMultiple);
+        btDiv = findViewById(R.id.buttonDiv);
+        btPlusOrMinus = findViewById(R.id.buttonPlusOrMinus);
+        btPoint = findViewById(R.id.buttonPoint);
 
         String i = Double.toString(x);
         etInOut.setText(i);
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         btDel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                delete();
             }
         });
 
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         btMinus.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                setoperator("-");
+                settext("-1");
             }
         });
 
@@ -171,18 +171,22 @@ public class MainActivity extends AppCompatActivity {
         btDiv.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                setoperator("÷");
             }
         });
 
         btPlusOrMinus.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                settext("-1");
             }
         });
 
         btPoint.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (pointsign == 0 && sign != 0)
+                    settext(".");
             }
         });
 
@@ -295,8 +299,8 @@ public class MainActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         if (sign == 1) {
             if (op1.length() - 1 > 0) {
-                char pointcheck=op1.charAt(op1.length()-1);
-                if(pointcheck=='.')pointsign=0;
+                char pointcheck = op1.charAt(op1.length()-1);
+                if(pointcheck == '.')pointsign=0;
                 op1 = op1.substring(0, op1.length() - 1);
                 etInOut.setText(op1);
                 i = Double.parseDouble(op1);
@@ -311,8 +315,8 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (sign == 2) {
             if (op2.length() - 1 > 0) {
-                char pointcheck=op2.charAt(op2.length()-1);
-                if(pointcheck=='.')pointsign=0;
+                char pointcheck = op2.charAt(op2.length()-1);
+                if(pointcheck == '.')pointsign=0;
                 op2 = op2.substring(0, op2.length() - 1);
                 etInOut.setText(op2);
                 i = Double.parseDouble(op2);
